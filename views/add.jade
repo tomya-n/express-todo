@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  a(href="/") list
   h1= "TODO"
       form(action='/add' method="post")
         input#title(type='text' name='title')

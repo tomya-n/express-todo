@@ -1,9 +1,8 @@
 extends layout
 
 block content
-  h1= "TODO"
-      form(action='/' method="post")
-        input#title(type='text' name='title')
-        input#memo(type='text' name='memo')
-        input#limit(type='date' name='limit')
-        input#submit(type='submit' value="追加")
+  h1= "TODO一覧"
+    a(href="/add") add
+    ul
+    each item in todo
+     li #{item.id} :#{item.title} memo:#{item.memo}

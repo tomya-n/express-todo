@@ -22,7 +22,7 @@ router.post('/add', function(req, res, next) {
     })
   })()
 
-  res.redirect('/add');
+  res.redirect('/');
 });
 
 module.exports = router;
