@@ -5,4 +5,5 @@ block content
     a(href="/add") add
     ul
     each item in todo
-     li #{item.id} :#{item.title} memo:#{item.memo}
+     li(id=item.id) #{item.title} memo:#{item.memo}
+      a(href='/delete/#{item.id}') 削除

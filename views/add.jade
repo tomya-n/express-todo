@@ -4,7 +4,10 @@ block content
   a(href="/") list
   h1= "TODO"
       form(action='/add' method="post")
-        input#title(type='text' name='title')
-        input#memo(type='text' name='memo')
+        label タイトル:
+        input#title(type='text' name='title')&attributes({value: '', placeholder: '例)クリーニング持込'})
+        label メモ:
+        input#memo(type='text' name='memo')&attributes({value: '', placeholder: '例)セーター コート'})
+        label 期限:
         input#limit(type='date' name='limit')
         input#submit(type='submit' value="追加")
