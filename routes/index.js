@@ -1,33 +1,18 @@
 
 const express = require('express');
 const router = express.Router();
-const Todo = require('../models').todos;
+const Todo = require('../models').Todos;
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
-});
-
-router.post('/', function(req, res, next) {
-  console.log(req.body.title);
-  console.log(req.body.memo);
-  console.log(req.body.limit);
-  console.log(new Date(req.body.limit));
-
-  (async ()=>{
-    await Todo.create({
-      title: req.body.title,
-      memo: req.body.memo,
-      status: 0,
-      limit_at: new Date(req.body.limit),
-      created_at: new Date(),
-      updated_at: new Date()
-    })
-  })()
+router.get('/', function(req,res){
+  // res.send("Todo 一覧を表示予定")
+  Todo.findAll({order: [['id','ASC']]}).then(todo => {
+    console.log(todo);
+    res.render('index',{todo: todo})
+  });
+})
 
 
-  console.log(Todo);
-  res.redirect('/');
-});
+
+
 
 module.exports = router;
