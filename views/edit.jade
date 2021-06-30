@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  a(href="/") list
+  a(href="/add") add
+  h1= "更新"
+      form(action='/edit/#{id}' method="post")
+        label タイトル:
+        input#title(type='text' name='title')&attributes({value: todo.title, placeholder: '例)クリーニング持込'})
+        label メモ:
+        input#memo(type='text' name='memo')&attributes({value: todo.memo, placeholder: '例)セーター コート'})
+        label 期限:
+        input#limit(type='date' value= limit, name='limit')
+        input#submit(type='submit' value="追加")

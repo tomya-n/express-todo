@@ -4,14 +4,12 @@ const router = express.Router();
 const Todo = require('../models').Todos;
 
 router.get('/', function(req,res){
-  // res.send("Todo 一覧を表示予定")
+  // todoデータ一覧を表示する
   Todo.findAll({order: [['id','ASC']]}).then(todo => {
-    console.log(todo);
+    // console.log(todo);
     res.render('index',{todo: todo})
   });
 })
-
-
 
 
 

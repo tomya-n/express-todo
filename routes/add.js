@@ -8,15 +8,15 @@ router.get('/add', function(req, res, next) {
 });
 
 router.post('/add', function(req, res, next) {
-  console.log(req.body.title);
-  console.log(req.body.memo);
-  console.log(new Date(req.body.limit));
+  const title = req.body.title;
+  const memo = req.body.memo;
+  const limit = new Date(req.body.limit);
 
   (async ()=>{
     await Todo.create({
-      title: req.body.title,
-      memo: req.body.memo,
-      limit: new Date(req.body.limit),
+      title: title,
+      memo: memo,
+      limit: limit,
       created_at: new Date(),
       updated_at: new Date()
     })

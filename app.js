@@ -7,7 +7,8 @@ const port = 3000;
 
 var indexRouter = require('./routes/index');
 var addRouter = require('./routes/add');
-
+var deleteRouter = require('./routes/delete');
+var editRouter = require('./routes/edit');
 
 var app = express();
 
@@ -24,6 +25,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // views add
 app.use('/', indexRouter);
 app.use('/', addRouter);
+app.use('/', deleteRouter);
+app.use('/', editRouter);
 
 
 // catch 404 and forward to error handler
