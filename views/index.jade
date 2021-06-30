@@ -6,4 +6,5 @@ block content
     ul
     each item in todo
      li(id=item.id) #{item.title} memo:#{item.memo}
+      a(href='/edit/#{item.id}') 更新
       a(href='/delete/#{item.id}') 削除

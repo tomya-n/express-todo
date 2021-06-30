@@ -11,6 +11,7 @@ body {
 a {
   color: #00B7FF;
   display: block;
+  margin-left: 10px;
 }
 
 li a{
