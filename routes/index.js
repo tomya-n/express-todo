@@ -5,10 +5,12 @@ const Todo = require('../models').Todos;
 
 router.get('/', function(req,res){
   // todoデータ一覧を表示する
-  Todo.findAll({order: [['id','ASC']]}).then(todo => {
-    // console.log(todo);
-    res.render('index',{todo: todo})
-  });
+  (async ()=>{
+    await Todo.findAll({order: [['id','ASC']]}).then(todo => {
+      // console.log(todo);
+      res.render('index',{todo: todo})
+    });
+  })()
 })
 
 

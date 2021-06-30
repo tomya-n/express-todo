@@ -19,10 +19,11 @@ router.post('/add', function(req, res, next) {
       limit: limit,
       created_at: new Date(),
       updated_at: new Date()
+    }).then(()=>{
+      res.redirect('/');
     })
   })()
 
-  res.redirect('/');
 });
 
 module.exports = router;

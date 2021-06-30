@@ -6,10 +6,12 @@ router.get('/delete/:id', function(req,res){
   // 洗濯されたtodoデータを削除する
   const itemId = req.params.id;
   console.log(itemId);
-  Todo.destroy({where:{ id: [itemId]}}).then(todo => {
-    console.log(todo);
-    res.redirect('/');
-  });
+  (async ()=>{
+    await Todo.destroy({where:{ id: [itemId]}}).then(todo => {
+      console.log(todo);
+      res.redirect('/');
+    });
+  })()
 })
 
 

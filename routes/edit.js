@@ -27,20 +27,18 @@ router.post('/edit/:id', function(req, res, next) {
   const limit = new Date(req.body.limit);
 
   (async ()=>{
-    Todo.update(
-      { title: title,
-        memo: memo,
-      limit: limit
-    },
-    { where: { id: id } }
-    ).then(() => {
-    
-      console.log( id + "のデータは更新されました。");
-    
-    })
+    await Todo.update(
+        { title: title,
+          memo: memo,
+        limit: limit
+      },
+      { where:{ id: id }}
+      ).then(() => {
+        console.log( id + "のデータは更新されました。");
+        res.redirect('/');
+      })
   })()
 
-  res.redirect('/');
 });
 
 module.exports = router;
